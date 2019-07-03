@@ -10,13 +10,14 @@
   "scripts": {
     "start": "node app.js",
     "build": "browserify -r jquery > public/js/bundle.js",
-    "cleanup": "mongo express-todo --eval 'db.todos.remove({});'"
+    "cleanup": "mongo express-todo --eval 'db.todos.remove({});'",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": "6.14.1"
   },
   "dependencies": {
-    
     "axios": "^0.18.0",
     "camelcase-keys-all-env": "^0.3.4",
     "chart.js": "^2.7.2",
@@ -71,9 +72,11 @@
     "vue-spinner": "^1.0.3",
     "vue-test-utils": "^1.0.0-beta.11",
     "vue-tour": "^1.0.1",
-    "vue2-ace-editor": "^0.0.11"
+    "vue2-ace-editor": "^0.0.11",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "browserify": "^13.1.1"
-  }
+  },
+  "snyk": true
 }
